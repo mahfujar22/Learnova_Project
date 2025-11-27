@@ -171,10 +171,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen>
                       ),
                     ),
                   ),
+
                 ],
               ),
             ),
-            const SizedBox(height: 24),
             RichText(
               text: TextSpan(
                 text: "Already Have an account? ",
@@ -192,7 +192,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen>
                 ],
               ),
             ),
+
           ],
+
         ),
       ),
     );
