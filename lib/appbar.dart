@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:task_project/screens/log_in_screen.dart';
 
 class Learnova extends StatelessWidget {
@@ -13,7 +12,7 @@ class Learnova extends StatelessWidget {
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            minimumSize: const Size(390, 56),
+            minimumSize:  Size(double.infinity, 56),
             backgroundColor: Color(0xFF023F86),
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),

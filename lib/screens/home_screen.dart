@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                   left: 10,
-                                  top: 200,
+                                  top: 190,
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       "Vocabulary 101",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "Jessica Roy",
                                           style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -157,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                   left: 10,
-                                  top: 130,
+                                  top: 128,
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       "Trigonometry Basic",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "Jessica Roy",
                                           style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -208,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                   left: 10,
-                                  top: 130,
+                                  top: 128,
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -217,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       "Trigonometry Basic",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -233,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "Jessica Roy",
                                           style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -265,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                   left: 10,
-                                  top: 130,
+                                  top: 128,
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -274,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       "English Listening",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -290,7 +290,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "Jessica Roy",
                                           style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -316,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                   left: 10,
-                                  top: 200,
+                                  top: 190,
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -325,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       "Geometry Advance",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -341,7 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "Jessica Roy",
                                           style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -367,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                   left: 10,
-                                  top: 200,
+                                  top: 190,
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -376,7 +376,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       "Geometry Advance",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -392,7 +392,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "Jessica Roy",
                                           style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
