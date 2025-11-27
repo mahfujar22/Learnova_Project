@@ -12,7 +12,7 @@ class Learnova extends StatelessWidget {
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            minimumSize:  Size(double.infinity, 56),
+            minimumSize: Size(double.infinity, 56),
             backgroundColor: Color(0xFF023F86),
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),

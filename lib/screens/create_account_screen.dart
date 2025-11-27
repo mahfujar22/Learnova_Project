@@ -171,7 +171,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen>
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
@@ -192,9 +191,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen>
                 ],
               ),
             ),
-
           ],
-
         ),
       ),
     );
