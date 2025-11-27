@@ -34,7 +34,7 @@ class _LogInScreenState extends State<LogInScreen>
             Container(
               height: 223,
               width: 430,
-              padding: const EdgeInsets.only(top: 60, bottom: 40),
+              alignment: Alignment.center,
               decoration: const BoxDecoration(
                 color: Color(0xFF023F86),
                 borderRadius: BorderRadius.only(
