@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MenuBookOutLineScreen extends StatefulWidget {
@@ -55,7 +54,7 @@ class _MenuBookOutLineScreenState extends State<MenuBookOutLineScreen> {
                       color: Colors.grey.shade300,
                       blurRadius: 12,
                       offset: const Offset(0, 4),
-                    )
+                    ),
                   ],
                 ),
 
@@ -205,7 +204,7 @@ class _MenuBookOutLineScreenState extends State<MenuBookOutLineScreen> {
                   height: 1,
                   color: Colors.grey.shade300,
                   margin: const EdgeInsets.symmetric(horizontal: 30),
-                )
+                ),
             ],
           );
         }).toList(),
@@ -252,7 +251,7 @@ class _MenuBookOutLineScreenState extends State<MenuBookOutLineScreen> {
                   height: 1,
                   color: Colors.grey.shade300,
                   margin: const EdgeInsets.symmetric(horizontal: 30),
-                )
+                ),
             ],
           );
         }).toList(),

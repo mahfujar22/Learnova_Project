@@ -1,7 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_project/create_account_screen.dart';
-import 'package:task_project/main_button_nav_screen.dart';
+import 'package:task_project/screens/create_account_screen.dart';
+import 'package:task_project/screens/main_button_nav_screen.dart';
+import 'package:task_project/widgets/coustom_field.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -10,8 +11,8 @@ class LogInScreen extends StatefulWidget {
   State<LogInScreen> createState() => _LogInScreenState();
 }
 
-class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStateMixin{
-
+class _LogInScreenState extends State<LogInScreen>
+    with SingleTickerProviderStateMixin {
   final TextEditingController emailTEController = TextEditingController();
   final TextEditingController passwordTEController = TextEditingController();
   late TabController _tabController;
@@ -35,7 +36,7 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
               width: 430,
               padding: const EdgeInsets.only(top: 60, bottom: 40),
               decoration: const BoxDecoration(
-                color: Color(0xFF0A5ED7),
+                color: Color(0xFF023F86),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(40),
                   bottomRight: Radius.circular(40),
@@ -55,16 +56,16 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
                     ),
                   ),
                   const SizedBox(width: 8),
-                   Expanded(
-                     child: Text(
+                  Expanded(
+                    child: Text(
                       "Learnova",
                       style: TextStyle(
                         fontSize: 28,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
-                                       ),
-                   ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -79,7 +80,7 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
             ),
             const SizedBox(height: 16),
             Container(
-              height: 28,
+              height: 35,
               width: 222,
               padding: const EdgeInsets.all(4),
               child: TabBar(
@@ -87,14 +88,17 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
                 dividerColor: Colors.transparent,
                 labelColor: Colors.blue,
                 unselectedLabelColor: Colors.grey,
-                labelStyle: const TextStyle(fontWeight: FontWeight.bold,fontSize: 14),
+                labelStyle: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorWeight: 1,
                 indicatorPadding: const EdgeInsets.only(top: 15),
-                  tabs: const[
-                    Tab(text: "Student"),
-                    Tab(text: "Teacher"),
-                  ],
+                tabs: const [
+                  Tab(text: "Student"),
+                  Tab(text: "Teacher"),
+                ],
               ),
             ),
             const SizedBox(height: 16),
@@ -104,48 +108,27 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("Email",style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey.shade500
-                  ),),
-                  const SizedBox(height: 8),
-                  TextField(
+                  customTextField(
                     controller: emailTEController,
-                    decoration: InputDecoration(
-                      hintText: "johndoe@gmail.com",
-                      filled: true,
-                      fillColor: Colors.white70,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                    label: "Email",
+                    hint: "John@gmail.com",
                   ),
                   const SizedBox(height: 8),
-                  Text("Password",style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey.shade500
-                  ),),
-                  const SizedBox(height: 8),
-                  TextField(
+                  customTextField(
                     controller: passwordTEController,
+                    label: "Password",
+                    hint: "******",
                     obscureText: obscurePassword,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white70,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        obscurePassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.grey,
                       ),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          obscurePassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: Colors.grey,
-                        ),
-                        onPressed: () => setState(() {
-                          obscurePassword = !obscurePassword;
-                        }),
-                      ),
+                      onPressed: () => setState(() {
+                        obscurePassword = !obscurePassword;
+                      }),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -155,16 +138,23 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
                       alignment: Alignment.centerRight,
                       child: Text(
                         "Forgot Password?",
-                        style: TextStyle(color: Colors.blue.shade600,
-                        fontSize: 16),
+                        style: TextStyle(
+                          color: Colors.blue.shade600,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>MainBottomNavScreen()));
-                      },
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainBottomNavScreen(),
+                        ),
+                      );
+                    },
                     child: const Center(
                       child: Text(
                         "Log In",
@@ -178,7 +168,7 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: (){},
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(390, 56),
                       backgroundColor: Colors.white,
@@ -203,17 +193,13 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
                       ],
                     ),
                   ),
-
                 ],
               ),
             ),
             RichText(
               text: TextSpan(
                 text: "New to Learnova? ",
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                ),
+                style: const TextStyle(color: Colors.black, fontSize: 16),
                 children: [
                   TextSpan(
                     text: "Create an account",
@@ -224,7 +210,12 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateAccountScreen()));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CreateAccountScreen(),
+                          ),
+                        );
                       },
                   ),
                 ],
@@ -235,6 +226,7 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
       ),
     );
   }
+
   @override
   void dispose() {
     emailTEController.dispose();
@@ -243,5 +235,3 @@ class _LogInScreenState extends State<LogInScreen> with SingleTickerProviderStat
     super.dispose();
   }
 }
-
-

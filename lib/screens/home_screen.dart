@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_project/searchbar_screen.dart';
+import 'package:task_project/screens/searchbar_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,12 +12,14 @@ class _HomeScreenState extends State<HomeScreen> {
   List texts = ["All", "中文", "English", "Maths", "Chemistry"];
 
   int selectedIndex = 0;
+  int isSelectedTabIndex = 0;
 
   final tabs = ["Trending", "New", "Following"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -37,11 +39,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   IconButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchBarScreen()));
-                      },
-                      icon:Icon( Icons.search, color: Colors.grey, size: 35)
-                  )
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SearchBarScreen(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.search, color: Colors.grey, size: 35),
+                  ),
                 ],
               ),
               const SizedBox(height: 10),
@@ -58,19 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 21),
-             /* SizedBox(
-                height: 40,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    _chip("All", isSelected: true),
-                    _chip("中文"),
-                    _chip("English"),
-                    _chip("Maths"),
-                    _chip("Chemistry"),
-                  ],
-                ),
-              ),*/
               SizedBox(
                 height: 40,
                 child: ListView.builder(
@@ -80,12 +74,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     return GestureDetector(
                       onTap: () {
                         setState(() {
-                          selectedIndex = index;
+                          isSelectedTabIndex = index;
                         });
                       },
                       child: _chip(
                         texts[index],
-                        isSelected: selectedIndex == index,
+                        isSelectedTabIndex: isSelectedTabIndex == index,
                       ),
                     );
                   },
@@ -422,21 +416,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _chip(String label, {bool isSelected = false}) {
+  Widget _chip(String label, {bool isSelectedTabIndex = false}) {
     return Container(
       margin: const EdgeInsets.only(right: 10),
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 6),
       decoration: BoxDecoration(
-        color: isSelected ? Colors.blue : Colors.white,
+        color: isSelectedTabIndex ? Colors.blue : Colors.white,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: isSelected ? Colors.blue : Colors.grey.shade300,
+          color: isSelectedTabIndex ? Colors.blue : Colors.grey.shade300,
         ),
       ),
       child: Text(
         label,
         style: TextStyle(
-          color: isSelected ? Colors.white : Colors.grey.shade700,
+          color: isSelectedTabIndex ? Colors.white : Colors.grey.shade700,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -461,13 +455,14 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               tabs[index],
               style: TextStyle(
-                color: isSelected ? Colors.blue : Colors.grey,
+                color: isSelected ? Color(0xFF023F86) : Colors.grey,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                 fontSize: 18,
               ),
             ),
             const SizedBox(height: 4),
-            if (isSelected) Container(height: 2, width: 80, color: Colors.blue),
+            if (isSelected)
+              Container(height: 2, width: 80, color: Color(0xFF023F86)),
           ],
         ),
       ),

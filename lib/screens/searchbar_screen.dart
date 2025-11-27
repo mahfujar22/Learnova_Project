@@ -13,7 +13,7 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
     "Vocabulary",
     "Grammar",
     "Geography",
-    "XXX"
+    "XXX",
   ];
 
   @override
@@ -24,15 +24,15 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(onPressed: (){
-          Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back, color: Colors.black, size: 26)),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.black, size: 26),
+        ),
         title: const Text(
           "Back",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-          ),
+          style: TextStyle(color: Colors.black, fontSize: 18),
         ),
         centerTitle: false,
       ),
@@ -42,16 +42,10 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.blue, width: 2),
-            borderRadius: BorderRadius.circular(6),
-          ),
-
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-              /// SEARCH FIELD
               Container(
                 height: 45,
                 decoration: BoxDecoration(
@@ -71,24 +65,23 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
                       ),
                     ),
 
-                    /// BLUE SEARCH BUTTON
                     Container(
                       height: 45,
                       width: 45,
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Color(0xFF023F86),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: const Icon(Icons.search,
-                          color: Colors.white, size: 24),
+                      child: const Icon(
+                        Icons.search,
+                        color: Colors.white,
+                        size: 24,
+                      ),
                     ),
                   ],
                 ),
               ),
-
               const SizedBox(height: 20),
-
-              /// TOPIC LIST
               Expanded(
                 child: ListView.separated(
                   itemCount: topics.length,
@@ -96,14 +89,16 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
                   itemBuilder: (context, index) {
                     return Container(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 14, horizontal: 14),
+                        vertical: 14,
+                        horizontal: 14,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.shade300,
-                            blurRadius: 3,
+                            blurRadius: 1,
                             offset: const Offset(0, 2),
                           ),
                         ],

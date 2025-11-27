@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class PersonScreen extends StatefulWidget {
   const PersonScreen({super.key});
-
   @override
   State<PersonScreen> createState() => _PersonScreenState();
 }
@@ -27,47 +26,58 @@ class _PersonScreenState extends State<PersonScreen> {
                     child: Icon(Icons.arrow_back, size: 25),
                   ),
                   const SizedBox(width: 8),
-                  Text("Back",style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black
-                  ),),
+                  Text(
+                    "Back",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
                   const Spacer(),
-                  Icon(Icons.settings,color: Colors.black,size: 25,),
+                  Icon(Icons.settings, color: Colors.black, size: 25),
                 ],
               ),
               const SizedBox(height: 15),
               const Center(
                 child: CircleAvatar(
                   radius: 42,
-                  backgroundImage: AssetImage("assets/images/omid-armin.png"), // change
+                  backgroundImage: AssetImage("assets/images/omid-armin.png"),
                 ),
               ),
-
               const SizedBox(height: 10),
-
               const Center(
                 child: Text(
                   "Jessica Roy",
-                  style: TextStyle(
-                      fontSize: 22, fontWeight: FontWeight.w700),
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
                 ),
               ),
-
               const SizedBox(height: 5),
-
               const Center(
-                child: Text(
-                  "Joined Since - Jun 2024",
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w500),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Joined Since -",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      "Jun 2024",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-
               const SizedBox(height: 25),
-
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 decoration: BoxDecoration(
@@ -88,8 +98,7 @@ class _PersonScreenState extends State<PersonScreen> {
 
               const Text(
                 "My Courses",
-                style: TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
 
               const SizedBox(height: 15),
@@ -101,19 +110,21 @@ class _PersonScreenState extends State<PersonScreen> {
           ),
         ),
       ),
-
     );
   }
+
   Widget _statItem(String value, String label) {
     return Column(
       children: [
-        Text(value,
-            style: const TextStyle(
-                fontSize: 20, fontWeight: FontWeight.w700)),
+        Text(
+          value,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+        ),
         const SizedBox(height: 4),
-        Text(label,
-            style: const TextStyle(
-                fontSize: 14, color: Colors.black54)),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 14, color: Colors.black54),
+        ),
       ],
     );
   }
@@ -124,13 +135,9 @@ class _PersonScreenState extends State<PersonScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.blue.withOpacity(0.5)),
+        border: Border.all(color: Colors.grey.withOpacity(0.2)),
         boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 6,
-            offset: Offset(0, 3),
-          ),
+          BoxShadow(color: Colors.black12, blurRadius: 6, offset: Offset(0, 3)),
         ],
       ),
       child: Column(
@@ -141,26 +148,36 @@ class _PersonScreenState extends State<PersonScreen> {
             children: const [
               Text(
                 "English Tenses",
-                style: TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
               Text(
                 "32 mins ago",
-                style: TextStyle(
-                    color: Colors.black, fontSize: 13),
+                style: TextStyle(color: Colors.black, fontSize: 13),
               ),
             ],
           ),
 
           const SizedBox(height: 6),
 
-          const Text(
-            "Level - Intermediate",
-            style: TextStyle(
-                color: Colors.black54,
-                fontSize: 16,
-                fontWeight: FontWeight.w500
-            ),
+          Row(
+            children: [
+              Text(
+                "Level ",
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              Text(
+                "- Intermediate",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
           ),
 
           const SizedBox(height: 12),
@@ -174,51 +191,55 @@ class _PersonScreenState extends State<PersonScreen> {
               SizedBox(width: 10),
               Text(
                 "Denisa Ozel",
-                style: TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.w600),
-              )
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
             ],
           ),
-
           const SizedBox(height: 18),
-
           Row(
             children: [
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF0098FF),
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12))),
-                  child: const Text("Get Back To It",
-                      style: TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.w600)),
+                    backgroundColor: const Color(0xFF0098FF),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: const Text(
+                    "Get Back To It",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                  ),
                 ),
               ),
 
               const SizedBox(width: 12),
 
               Expanded(
-                child: OutlinedButton(
+                child: ElevatedButton(
                   onPressed: () {},
                   style: OutlinedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      side: const BorderSide(color: Colors.black54),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12))),
+                    backgroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    side: const BorderSide(color: Colors.blue),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
                   child: const Text(
                     "Course Details",
                     style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.w600),
+                      fontSize: 16,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

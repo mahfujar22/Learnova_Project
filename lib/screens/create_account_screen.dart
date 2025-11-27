@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_project/screens/log_in_screen.dart';
+import 'package:task_project/widgets/coustom_field.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
@@ -8,11 +10,13 @@ class CreateAccountScreen extends StatefulWidget {
   State<CreateAccountScreen> createState() => _CreateAccountScreenState();
 }
 
-class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTickerProviderStateMixin{
+class _CreateAccountScreenState extends State<CreateAccountScreen>
+    with SingleTickerProviderStateMixin {
   final TextEditingController nameTEController = TextEditingController();
   final TextEditingController emailTEController = TextEditingController();
   final TextEditingController passwordTEController = TextEditingController();
-  final TextEditingController confirmPasswordTEController = TextEditingController();
+  final TextEditingController confirmPasswordTEController =
+      TextEditingController();
   late TabController _tabController;
   bool obscurePassword = true;
 
@@ -34,7 +38,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
               width: 430,
               padding: const EdgeInsets.only(top: 60, bottom: 40),
               decoration: const BoxDecoration(
-                color: Color(0xFF0A5ED7),
+                color: Color(0xFF023F86),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(40),
                   bottomRight: Radius.circular(40),
@@ -54,16 +58,16 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
                     ),
                   ),
                   const SizedBox(width: 8),
-                   Expanded(
-                     child: Text(
+                  Expanded(
+                    child: Text(
                       "Learnova",
                       style: TextStyle(
                         fontSize: 28,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
-                                       ),
-                   ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -78,7 +82,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
             ),
             const SizedBox(height: 16),
             Container(
-              height: 28,
+              height: 35,
               width: 222,
               padding: const EdgeInsets.all(4),
               child: TabBar(
@@ -86,14 +90,17 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
                 dividerColor: Colors.transparent,
                 labelColor: Colors.blue,
                 unselectedLabelColor: Colors.grey,
-                labelStyle: const TextStyle(fontWeight: FontWeight.bold,fontSize: 14),
+                labelStyle: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorWeight: 1,
                 indicatorPadding: const EdgeInsets.only(top: 15),
-                  tabs: const[
-                    Tab(text: "Student"),
-                    Tab(text: "Teacher"),
-                  ],
+                tabs: const [
+                  Tab(text: "Student"),
+                  Tab(text: "Teacher"),
+                ],
               ),
             ),
             const SizedBox(height: 16),
@@ -103,98 +110,56 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("Name",style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey.shade500
-                  ),),
-                  const SizedBox(height: 8),
-                  TextField(
+                  customTextField(
                     controller: nameTEController,
-                    decoration: InputDecoration(
-                      hintText: "john Doe",
-                      filled: true,
-                      fillColor: Colors.white70,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                    label: "Name",
+                    hint: "John Doe",
                   ),
                   const SizedBox(height: 8),
-                  Text("Email",style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey.shade500
-                  ),),
-                  const SizedBox(height: 8),
-                  TextField(
+                  customTextField(
                     controller: emailTEController,
-                    decoration: InputDecoration(
-                      hintText: "johndoe@gmail.com",
-                      filled: true,
-                      fillColor: Colors.white70,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                    label: "Email",
+                    hint: "John@gmail.com",
                   ),
                   const SizedBox(height: 8),
-                  Text("Password",style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey.shade500
-                  ),),
-                  const SizedBox(height: 8),
-                  TextField(
+                  customTextField(
                     controller: passwordTEController,
+                    label: "Password",
+                    hint: "******",
                     obscureText: obscurePassword,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white70,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        obscurePassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.grey,
                       ),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          obscurePassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: Colors.grey,
-                        ),
-                        onPressed: () => setState(() {
-                          obscurePassword = !obscurePassword;
-                        }),
-                      ),
+                      onPressed: () => setState(() {
+                        obscurePassword = !obscurePassword;
+                      }),
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Text(" Confirm Password",style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey.shade500
-                  ),),
-                  const SizedBox(height: 8),
-                  TextField(
+                  customTextField(
                     controller: confirmPasswordTEController,
+                    label: " Confirm Password",
+                    hint: "******",
                     obscureText: obscurePassword,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white70,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        obscurePassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.grey,
                       ),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          obscurePassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: Colors.grey,
-                        ),
-                        onPressed: () => setState(() {
-                          obscurePassword = !obscurePassword;
-                        }),
-                      ),
+                      onPressed: () => setState(() {
+                        obscurePassword = !obscurePassword;
+                      }),
                     ),
                   ),
                   const SizedBox(height: 46),
                   ElevatedButton(
-                      onPressed: (){},
+                    onPressed: onTabNextScreen,
                     child: const Center(
                       child: Text(
                         "Create Account",
@@ -213,10 +178,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
             RichText(
               text: TextSpan(
                 text: "Already Have an account? ",
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                ),
+                style: const TextStyle(color: Colors.black, fontSize: 16),
                 children: [
                   TextSpan(
                     text: "Log in",
@@ -225,10 +187,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
                     ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-
-                      },
+                    recognizer: TapGestureRecognizer()..onTap = () {},
                   ),
                 ],
               ),
@@ -238,6 +197,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
       ),
     );
   }
+
+  void onTabNextScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LogInScreen()),
+    );
+  }
+
   @override
   void dispose() {
     nameTEController.dispose();
@@ -248,5 +215,3 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> with SingleTi
     super.dispose();
   }
 }
-
-

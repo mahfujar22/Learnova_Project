@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task_project/like_screen.dart';
 
 class VideoLibraryScreen extends StatefulWidget {
   const VideoLibraryScreen({super.key});
@@ -9,6 +8,9 @@ class VideoLibraryScreen extends StatefulWidget {
 }
 
 class _VideoLibraryScreenState extends State<VideoLibraryScreen> {
+  bool isFollowing = false;
+  bool isLiked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,10 +34,10 @@ class _VideoLibraryScreenState extends State<VideoLibraryScreen> {
             child: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.white70,
-                shape: BoxShape.circle,
+                color: Colors.black.withOpacity(0.25),
+                borderRadius: BorderRadius.circular(12),
               ),
-              child: const Icon(Icons.search, size: 32,color: Colors.white,),
+              child: const Icon(Icons.search, size: 32, color: Colors.white),
             ),
           ),
           Positioned(
@@ -51,8 +53,7 @@ class _VideoLibraryScreenState extends State<VideoLibraryScreen> {
                     children: [
                       const CircleAvatar(
                         radius: 20,
-                        backgroundImage:
-                        AssetImage("assets/images/circle.png"),
+                        backgroundImage: AssetImage("assets/images/circle.png"),
                       ),
                       const SizedBox(width: 10),
                       const Text(
@@ -64,18 +65,37 @@ class _VideoLibraryScreenState extends State<VideoLibraryScreen> {
                         ),
                       ),
                       const SizedBox(width: 10),
-                      Container(
-                      height: 32,
-                        width: 70,
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Text(
-                          "Follow",
-                          style: TextStyle(fontSize: 15),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            isFollowing = !isFollowing;
+                          });
+                        },
+                        child: Container(
+                          height: 35,
+                          width: 90,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
+                          decoration: BoxDecoration(
+                            color: isFollowing
+                                ? Colors.transparent
+                                : Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Center(
+                            child: Text(
+                              isFollowing ? "Followed" : "Follow",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: isFollowing
+                                    ? Colors.black
+                                    : Colors.black,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                       const SizedBox(width: 10),
@@ -88,12 +108,17 @@ class _VideoLibraryScreenState extends State<VideoLibraryScreen> {
                         ),
                         child: Center(
                           child: IconButton(
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>LikeScreen()));
-                              },
-                              icon: Icon(
-                                Icons.thumb_up_alt_outlined,
-                              ),
+                            onPressed: () {
+                              setState(() {
+                                isLiked = !isLiked;
+                              });
+                            },
+                            icon: Icon(
+                              isLiked
+                                  ? Icons.thumb_up_alt
+                                  : Icons.thumb_up_alt_outlined,
+                              color: isLiked ? Colors.blue : Colors.black,
+                            ),
                           ),
                         ),
                       ),
@@ -111,7 +136,7 @@ class _VideoLibraryScreenState extends State<VideoLibraryScreen> {
                   const SizedBox(height: 8),
                   const Text(
                     "So what is the necessary to learn vocabulary in today world. "
-                        "Everyone is learn.....read more",
+                    "Everyone is learn.....read more",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,

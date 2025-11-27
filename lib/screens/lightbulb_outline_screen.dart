@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
+import 'package:task_project/screens/main_button_nav_screen.dart';
 
 class LightBulbOutlineScreen extends StatefulWidget {
   const LightBulbOutlineScreen({super.key});
 
   @override
-  State<LightBulbOutlineScreen> createState() =>
-      _LightBulbOutlineScreenState();
+  State<LightBulbOutlineScreen> createState() => _LightBulbOutlineScreenState();
 }
 
 class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
@@ -18,12 +17,7 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
   late AnimationController controller;
   late Animation<Offset> slideUp;
 
-  List<String> options = [
-    "Scared",
-    "Frightening",
-    "Timid",
-    "Concerned",
-  ];
+  List<String> options = ["Scared", "Frightening", "Timid", "Concerned"];
 
   @override
   void initState() {
@@ -34,8 +28,10 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
       duration: const Duration(milliseconds: 450),
     );
 
-    slideUp = Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
-        .animate(CurvedAnimation(parent: controller, curve: Curves.easeOut));
+    slideUp = Tween(
+      begin: const Offset(0, 1),
+      end: const Offset(0, 0),
+    ).animate(CurvedAnimation(parent: controller, curve: Curves.easeOut));
   }
 
   @override
@@ -61,28 +57,9 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 40),
-                Row(
-                  children: const [
-                    CircleAvatar(
-                      backgroundColor: Colors.white70,
-                      foregroundColor: Colors.black,
-                      child: Icon(Icons.arrow_back, size: 22),
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      "Back",
-                      style: TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 22),
-
                 const Text(
                   "Let’s Test Your Understanding!",
-                  style: TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
 
                 const SizedBox(height: 15),
@@ -92,7 +69,9 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 6),
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: const Color(0xFFE7F2FF),
                         borderRadius: BorderRadius.circular(20),
@@ -100,9 +79,10 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                       child: const Text(
                         "Vocabulary",
                         style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xFF007BFF),
-                            fontWeight: FontWeight.w600),
+                          fontSize: 16,
+                          color: Color(0xFF007BFF),
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
 
@@ -113,7 +93,9 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                         Text(
                           "23.03s",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ],
                     ),
@@ -140,7 +122,6 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                 ),
 
                 const SizedBox(height: 20),
-
                 Column(
                   children: List.generate(options.length, (index) {
                     bool selected = selectedIndex == index;
@@ -158,7 +139,9 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 12),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 18, vertical: 16),
+                          horizontal: 18,
+                          vertical: 16,
+                        ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
                           color: Colors.white,
@@ -173,12 +156,11 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                               color: Colors.grey.shade200,
                               blurRadius: 4,
                               offset: const Offset(0, 2),
-                            )
+                            ),
                           ],
                         ),
                         child: Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               options[index],
@@ -215,6 +197,15 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                   }),
                 ),
 
+                const SizedBox(height: 40),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Next',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  ),
+                ),
+
                 const SizedBox(height: 200),
               ],
             ),
@@ -235,20 +226,33 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
                             const SizedBox(height: 55),
 
                             Row(
-                              children: const [
+                              children: [
                                 CircleAvatar(
                                   backgroundColor: Colors.white70,
-                                  child: Icon(Icons.arrow_back),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              MainBottomNavScreen(),
+                                        ),
+                                      );
+                                    },
+                                    icon: Icon(Icons.arrow_back),
+                                  ),
                                 ),
                                 SizedBox(width: 8),
-                                Text("Back",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500)),
+                                Text(
+                                  "Back",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                               ],
                             ),
 
@@ -257,26 +261,49 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                             const Text(
                               "Well Done! Here Is The Explanation",
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
 
                             const SizedBox(height: 15),
 
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 6),
-                              decoration: BoxDecoration(
-                                color: Color(0xFFE7F2FF),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: const Text(
-                                "Vocabulary",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color(0xFF007BFF),
-                                  fontWeight: FontWeight.w600,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 6,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFE7F2FF),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: const Text(
+                                    "Vocabulary",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xFF007BFF),
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
                                 ),
-                              ),
+
+                                Row(
+                                  children: const [
+                                    Icon(Icons.watch_later_outlined, size: 20),
+                                    SizedBox(width: 4),
+                                    Text(
+                                      "23.03s",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
 
                             const SizedBox(height: 20),
@@ -315,15 +342,18 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                                     width: 390,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
-                                        color: const Color(0xFFDBF1FF)
+                                      color: const Color(0xFFDBF1FF),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.only(top: 15,left: 8),
+                                      padding: const EdgeInsets.only(
+                                        top: 15,
+                                        left: 8,
+                                      ),
                                       child: Text(
                                         "Timid (膽小)",
                                         style: TextStyle(
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w700,
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w700,
                                         ),
                                       ),
                                     ),
@@ -352,24 +382,23 @@ class _LightBulbOutlineScreenState extends State<LightBulbOutlineScreen>
                         ),
                       ),
                     ),
-                   ElevatedButton(
-                       onPressed: (){},
-                     child: const Text(
-                       "Continue",
-                       style: TextStyle(
-                           color: Colors.white,
-                           fontSize: 17,
-                           fontWeight: FontWeight.w600),
-                     ),
-                   ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "Continue",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
-
         ],
       ),
     );
   }
 }
-
